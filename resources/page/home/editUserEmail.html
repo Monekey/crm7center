@@ -1,0 +1,37 @@
+<div class="modal-header">
+    <h3 class="modal-title">修改邮箱</h3>
+</div>
+<div class="modal-body">
+    <form class="form-horizontal"  name="form" ng-submit="saveEditEmail(user)" autocomplete="off">
+    
+		 <div class="form-group">
+              <label for="phone" class="col-sm-3 control-label  control-label-left">新邮箱账号：</label>
+              <div class="col-sm-4">
+                  <input type="text" class="form-control form-control-input" set-focus="focusOn" id="email"
+                         name="email" ng-model="user.email" required 
+                         tooltip-trigger="blur" uib-tooltip="{{form.phone.$invalid?'请输入邮箱账号':''}}"
+                         ng-pattern="/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/"
+                         tooltip-placement="bottom" placeholder="请输入邮箱账号" />
+           	 </div>
+          </div>
+          
+          <div class="form-group" >
+              <label class="col-sm-3 control-label control-label-left" for="password">系统密码：</label>
+              <div class="col-sm-4">
+                  <input type="password" class="form-control form-control-input" name="password" id="password"
+                         ng-model="user.password" maxlength="6"
+                         required tooltip-trigger="blur" uib-tooltip="{{form.password.$invalid?'请输入系统密码':''}}"
+                         tooltip-placement="bottom" placeholder="请输入系统密码"/>               
+              </div>
+          </div>
+     
+          <div class="form-group">
+              <div class="col-sm-offset-4 col-sm-2">
+                  <button type="submit" class="btn btn-primary btn-large pos-btn" ng-disabled="form.$invalid">确定</button>
+              </div>
+              <div class="col-sm-2">
+                  <button type="button" class="btn  btn-default btn-large pos-btn" ng-click="cancel()">取消</button>
+              </div>
+          </div>
+     </form>       
+</div>

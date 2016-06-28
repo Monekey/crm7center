@@ -1,0 +1,53 @@
+<top-bar systems="systems" system-now="systemNow" tab-status="tabStatus"></top-bar>
+
+<div class="panel panel-default" style="position: relative;margin-top:60px;">
+	<div class="panel-heading">
+	    <h3 class="panel-title">账号管理 </h3>
+   	</div>
+	<div class="panel-body">
+	
+	</div>
+		<form class="form-horizontal" name="form" autocomplete="off">
+			<div class="form-group" >
+				<label class="col-sm-2 control-label  control-label-left" >姓名:</label>
+				<div class="col-sm-3">
+					<p  class="form-control-static" ng-if="!showEditUserName"  ng-bind="user.userName"></p>
+					<div ng-if="showEditUserName">
+						<input type="text"  class="form-control"
+								   name="newUserName" id="newUserName" ng-model="user.newUserName" required 
+		                           placeholder="可输入数字、英文、中文，长度10个以内" maxlength='10'
+								   ng-pattern="/^[0-9a-zA-Z\u4E00-\u9FA5]{0,10}$/" tooltip-trigger="blur"
+								   uib-tooltip="{{form.newUserName.$invalid?'姓名可输入数字、英文、中文，长度10个以内':''}}"
+								   tooltip-placement="bottom" >
+					</div>
+				</div>
+				<div class="col-sm-2" >
+					<p class="form-control-static" ng-if="!showEditUserName" ><a ng-click="editUser(user,'userName')">修改</a></p>
+					<div ng-if="showEditUserName" >
+						<button  class="btn btn-primary" type="button" ng-click="saveEditUserName(user)" ng-disabled="form.$invalid">保存</button>
+						<button class="btn btn-default" type="button" ng-click="cancelEditUserName(user)">取消</button>
+					</div>
+				</div>
+			</div>
+			<div class="form-group" >
+				<label class="col-sm-2 control-label  control-label-left">手机:</label>
+				<div class="col-sm-3"><p class="form-control-static" ng-bind="user.mobilePhone"></p></div>
+				<div class="col-sm-2"><p class="form-control-static"><a ng-click="editUser(user,'mobilePhone')">修改</a></p></div>
+			</div>
+			<div class="form-group" >
+				<label class="col-sm-2 control-label  control-label-left">邮箱:</label>
+				<div class="col-sm-3"><p class="form-control-static" ng-bind="user.email"></p></div>
+				<div class="col-sm-2"><p class="form-control-static"><a ng-click="editUser(user,'email')">修改</a></p></div>
+			</div>
+			<div class="form-group" >
+				<label class="col-sm-2 control-label  control-label-left">账号密码:</label>
+				<div class="col-sm-3"><p class="form-control-static"><a ng-click="editUser(user,'password')">修改</a></p></div>
+			</div>
+			<div class="form-group" >
+				<div class="col-sm-3 col-sm-offset-2">
+					<button type="button" ng-click="" class="btn btn-default">返回</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
